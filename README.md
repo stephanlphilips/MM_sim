@@ -1,5 +1,5 @@
 # Micromagnet simulator
-Small simulator written in c/python to simulate micromagnet designs for spin qubit chip.
+Small simulator written in c/python to simulate micromagnet designs for spin qubit chips.
 
 
 ## Requirements:
