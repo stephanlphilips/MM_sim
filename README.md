@@ -4,7 +4,8 @@ Small simulator written in c/python to simulate micromagnet designs for spin qub
 
 ## Requirements:
 Linux/Os X : gcc/python (>3.7)
-Windows : visual studio build tools/python (>3.7)
+<br/>
+Windows : visual studio build tools (c++ libs)/python (>3.7)
 
 ## Installation:
 The installation is done by a setup.py file, move to the cloned repository and run:
