@@ -13,7 +13,7 @@ This provides a easy to use interface to generate micromagnet designs and calcul
    :maxdepth: 2
    
    intro_um_gen
-
+   um_views
 
 
 Indices and tables

@@ -1,9 +1,9 @@
-Introduction to micromagnet design
+Introduction to the micromagnet design specification
 ===================================
 
-This section will talk about how to generate different magnet geometries. As coordinate system, the standard Cartesian system is used. The magnetization of the magnets can be set in arbitrary direction, so there is no standard direction for fields. Standard units are chosen to be, magnetic field in Tesla and distances in nm.
+This section will talk about how to generate different magnet geometries. As coordinate system, the standard Cartesian system is used. The magnetization of the magnets can be set in an arbitrary direction, so there is no standard direction for fields. Standard units are chosen to be, magnetic field in Tesla and distances in nm.
 
-All starts with making a call to the library, e.g. , 
+The geometry generation can be started by making a call to the library, e.g. , 
 ```python
 from micromagnet_simulator.magnet_creator import umag_creator
 
@@ -11,7 +11,7 @@ umag = umag_creator()
 ```
 This will generate an object that manages the creation of different blocks of magnets.
 
-Next you can set the general properties that will be used throughout the simulations, 
+Next you can set the general properties of the simulation, 
 ```python
 # set magnetization in the x,y,z direction with a field strength of 1,0,0 Tesla.
 umag.set_magnetisation(1,0,0)
@@ -44,9 +44,7 @@ view = umag.generate_view(True)
 view.show()
 ```
 
-The resulting code produces a slab of magnets like this : 
-A example window would look like:
-
+The resulting code produces a slabs of magnets like this: 
 xz view                    |  yz view
 :-------------------------:|:-------------------------:
 ![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)
@@ -58,9 +56,9 @@ umag = umag_creator()
 
 umag.add_cube(-500, 0, 200, 400,500,200)
 # in this case we specify the coordinates of a triangle in the xz plane
-p_2 = (-450, 0, 100)
-p_1 = (-500, 0, 100)
-p_3 = (-500, 0, 300)
+p_2 = (-250, 0, 100)
+p_1 = (-300, 0, 100)
+p_3 = (-300, 0, 300)
 # now we can extend in the y plane around these coordinate (so in this case, -250nm, 250nm on the y axis)
 umag.add_triangle(*p_1, *p_2, *p_3, 'y',500, n_magnets=20)
 view = umag.generate_view(True)
