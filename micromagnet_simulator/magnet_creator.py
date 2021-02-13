@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import magpylib as magpy
 import numpy as np
 import copy
@@ -44,7 +45,7 @@ class magnet():
 	delta_x : float
 	delta_y : float
 	delta_z : float
-	magnetisation : tuple = (1000,1,1)
+	magnetisation : tuple = (1000,0,0)
 
 	def set_magnetisation(self, magnetisation):
 		self.magnetisation = magnetisation
@@ -159,17 +160,17 @@ class umag_creator():
 
 		return self.data_tmp
 
-	def generate_view(self):
+	def generate_view(self, show_geom = False):
 		if self.data.size == 1:
 			m_coll = magnet_collection()
 
 			for m in self.data[0].u_mag_positions:
-				m.set_magnetisation(self.data[0].magnetisation)
 				m_coll += m
 
-			fig = plt.figure(figsize=(9,5))
-			ax1 = fig.add_subplot(121, projection='3d')
-			magpy.displaySystem(m_coll.coll, subplotAx=ax1, suppress=True)
+			if show_geom == True:
+				fig = plt.figure(figsize=(9,5))
+				ax1 = fig.add_subplot(121, projection='3d')
+				magpy.displaySystem(m_coll.coll, subplotAx=ax1, suppress=True)
 
 			return plot_view(m_coll, view=None)
 		else:
@@ -180,43 +181,3 @@ class umag_creator():
 			data_item.make_collection()
 
 		return qubit_view(self.data, self._setpoints)
-
-
-
-if __name__ == '__main__':
-	from micromagnet_simulator.loop_control.looping import linspace
-	import matplotlib.pyplot as plt
-	m = umag_creator()
-	m.set_magnetisation(1, 0, 0)
-	m.add_electron_position(0, -200, linspace(-80,50, 20, axis=0))
-	m.add_electron_position(0, -120, linspace(-80,50, 20, axis=1))
-	m.add_electron_position(0, -40, linspace(-80,50, 20, axis=0))
-	m.add_electron_position(0, 40, linspace(-80,50, 20, axis=0))
-
-	m.add_cube( -600, 0, 200, 400, 600 , 200)
-	m.add_cube( 600, 0, 200, 400, 600 , 200)
-	# p_1 = (-400, -100, 200)
-	# p_2 = (-400, 100, 200)
-	# p_3 = (-300, -100, 200)
-	# m.add_triangle(p_1, p_2, p_3, 'z',200)
-
-	# p_1 = (-400, 0, 100)
-	# p_2 = (-400, 0, 300)
-	# p_3 = (-350, 0, 100)
-	# m.add_triangle(p_1, p_2, p_3, 'y',600)
-
-	# v = m.generate_view()
-	# v.set_unit('mT')
-	# v.set_image('xz', -500,500,100,-80,50,100, 0)
-	# v.set_slice('z', -80, 50, 100,0, 40 )
-	# v.plot_fields('x', plot_type='norm')
-	# v.plot_derivative('x', movement_direction='x')
-	# v.plot_derivative('x', movement_direction='xy')
-	# v.plot_derivative('z', movement_direction='xy')
-	# v.plot_derivative('y', movement_direction='xy')
-
-	p = m.generate_qubit_prop()
-	p.unit = 'mT'
-	p.plot_fields('x')
-	p.plot_derivative('x', 'x')
-	plt.show()
