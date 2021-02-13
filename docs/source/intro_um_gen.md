@@ -67,4 +67,4 @@ view = umag.generate_view(True)
 view.show()
 ```
 The result : 
-![](slant_example.png)
+![](img/slant_example.png)
