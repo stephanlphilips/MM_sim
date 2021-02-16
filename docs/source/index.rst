@@ -14,6 +14,7 @@ This provides a easy to use interface to generate micromagnet designs and calcul
    
    intro_um_gen
    um_views
+   um_qubits
 
 
 Indices and tables
