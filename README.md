@@ -16,5 +16,3 @@ https://micromagnet-simulator.readthedocs.io/
 ## Backend
 As backend the package magpylib is used :
 G. Michael Ortner, et al., Magpylib: A free Python package for magnetic field computation, SoftwareX, 2020
-
-https://magpylib.readthedocs.io/en/latest/
