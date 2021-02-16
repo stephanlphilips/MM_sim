@@ -38,9 +38,10 @@ release = '2021'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+import sphinx_rtd_theme
 
 extensions = [
-    'sphinx.ext.autodoc', 'recommonmark','sphinx_theme'
+    'sphinx.ext.autodoc', 'recommonmark','sphinx_rtd_theme'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -176,9 +177,4 @@ epub_title = project
 epub_exclude_files = ['search.html']
 
 
-try:
-    import sphinx_theme
-    html_theme = 'neo_rtd_theme'
-    html_theme_path = [sphinx_theme.get_html_theme_path()]
-except:
-    html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
