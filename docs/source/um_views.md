@@ -40,8 +40,8 @@ view.unit = 'GHz'
 fig_abs_field = view.plot_fields('xyz') #specified which field direction, for Bx, specify 'x'
 
 view.unit = 'mT'
-fig_driving_gradient = view.plot_derivative(field_direction='yz', movement_direction='x')
-fig_dec_gradient     = view.plot_derivative(field_direction='x', movement_direction='xy')
+fig_driving_gradient = view.plot_derivative(field_direction='yz', movement_direction='x' )
+fig_dec_gradient     = view.plot_derivative(field_direction='x' , movement_direction='xy')
 
 view.show()
 ```
@@ -65,8 +65,8 @@ fig_abs_field = view.plot_fields('xyz') #specified which field direction, for Bx
 fig_vec       = view.plot_fields('xz', plot_type='vect') #make a vector plot
 
 view.unit = 'mT'
-fig_driving_gradient = view.plot_derivative(field_direction='yz', movement_direction='x')
-fig_dec_gradient     = view.plot_derivative(field_direction='x', movement_direction='xy')
+fig_driving_gradient = view.plot_derivative(field_direction='yz', movement_direction='x' )
+fig_dec_gradient     = view.plot_derivative(field_direction='x' , movement_direction='xy')
 
 view.show()
 ```
@@ -75,7 +75,5 @@ The generated plots look like this:
 Total field                |  Vector image 			  |
 :-------------------------:|:------------------------:|
 ![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)|
-:-------------------------:|:------------------------:|
 Driving gradient           |  Decoherence gradient	  |
-:-------------------------:|:------------------------:|
 ![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)|
