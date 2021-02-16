@@ -14,7 +14,7 @@ view = umag.generate_view()
 The ```generate_view()``` method will generate a view of the currently specified micromagnet design. Now the result of the simulation can be plotted, before doing this, we will have the specify the area to plot : 
 ```python
 # a 1D slice of the field at the locations of the qubits
-view.set_slice()
+view.set_slice('y', -500, 500, 100, 0, -30) # plot y-axis, -500nm to 500nm (100pt), x=0, z=-30
 
 # a 2d image in the xz plane, x : -200nm, 200nm, 100 points, z : -100nm, 300nm, 100 points ; y : 0nm
 view.set_image('xz', -200,200,100,-100,300,100, 0)
@@ -49,7 +49,7 @@ view.show()
 The generated plots look like this:
 Total field                |  Driving gradient		  |  Decoherence gradient
 :-------------------------:|:------------------------:|:-------------------------:
-![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)| ![](img/two_cubes_yz.png)
+![](img/abs_field_1D.png)  | ![](img/driving_gradient_1D.png)| ![](img/dec_gradient_1D.png)
 
 
 
@@ -74,6 +74,6 @@ view.show()
 The generated plots look like this:
 Total field                |  Vector image 			  |
 :-------------------------:|:------------------------:|
-![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)|
+![](img/abs_field_2D.png)  | ![](img/field_vect_2D.png)|
 Driving gradient           |  Decoherence gradient	  |
-![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)|
+![](img/driving_gradient_2D.png)  | ![](img/dec_gradient_2D.png)|
