@@ -1,5 +1,5 @@
 Introduction to the micromagnet design specification
-===================================
+====================================================
 
 This section will talk about how to generate different magnet geometries. As coordinate system, the standard Cartesian system is used. The magnetization of the magnets can be set in an arbitrary direction, so there is no standard direction for fields. Standard units are chosen to be, magnetic field in Tesla and distances in nm.
 
@@ -45,9 +45,10 @@ view.show()
 ```
 
 The resulting code produces a slabs of magnets like this: 
-xz view                    |  yz view
-:-------------------------:|:-------------------------:
-![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png)
+
+| xz view                    |  yz view 				 |
+| :------------------------: | ------------------------- |
+| ![](img/two_cubes_xz.png)  | ![](img/two_cubes_yz.png) |
 
 
 It is also possible to add triangular pieces of micromagnet. In this example a slanted area at the edge will be added.
