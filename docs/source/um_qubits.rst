@@ -56,7 +56,7 @@ Now the question is how to sweep things? To do this, a concept similar to numpy 
 
 .. code-block:: python
 
-	from micromagnet_simulator.looping import linspace
+	from micromagnet_simulator.loop_control.looping import linspace
 
 	# make a linspace object like numpy does, axis, name and units
 	# are given to give the solver information how the sweep should be executed
