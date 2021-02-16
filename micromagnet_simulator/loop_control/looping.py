@@ -161,6 +161,9 @@ class loop_obj():
         cpy.data = self.data/other
         return cpy
 
+    def __neg__(self):
+        return -1*self
+        
     def __copy__(self):
         cpy = loop_obj()
         cpy.labels = copy.copy(self.labels)

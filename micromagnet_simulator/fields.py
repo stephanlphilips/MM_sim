@@ -72,10 +72,9 @@ class field_generic():
 			field = 0 
 			for i in list(movement_direction):
 				for j in list(field_direction):
-					idx = [list('xyz').index(i),0,0,0,list('xyz').index(j)]
+					idx = [list('xyz').index(i)]+self.ndim*[0]+[list('xyz').index(j)]
 					for k in self.active_idx:
 						idx[k+1] = slice(None)
-
 					field += self.d_field[tuple(idx)]**2
 					
 			return np.sqrt(field)*self.unit_conv
