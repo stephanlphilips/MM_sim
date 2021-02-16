@@ -67,11 +67,11 @@ h_slant =  linspace(100, 300,20, axis=1, name='h_slant', unit='nm')
 umag = example_MM_design(250, h_slant, w_slant)
 view = umag.generate_qubit_prop()
 
-view.unit = 'GHz'
-f=view.plot_fields('xyz')
+# view.unit = 'GHz'
+# f=view.plot_fields('xyz')
 
-view.unit = 'mT'
-f=view.plot_derivative('x', movement_direction='xy')
-f=view.plot_derivative('yz', movement_direction='x')
+# view.unit = 'mT'
+# f=view.plot_derivative('x', movement_direction='xy')
+# f=view.plot_derivative('yz', movement_direction='x')
 
-view.show()
+# view.show()
