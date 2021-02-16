@@ -9,7 +9,12 @@ python setup.py install
 ```
 to install the packages.
 
-## Background
+## Documentation:
+The docs pages can be found on:
+
+https://micromagnet-simulator.readthedocs.io/
+
+## Backend
 As backend the package magpylib is used :
 G. Michael Ortner, et al., Magpylib: A free Python package for magnetic field computation, SoftwareX, 2020
 
