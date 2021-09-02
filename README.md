@@ -8,6 +8,11 @@ python setup.py install
 ```
 to install the packages.
 
+Note this package has to be used with an older version of magpylib;
+```bash
+pip install magpylib==2.3.0b0
+```
+
 ## Documentation:
 The docs pages can be found on:
 
