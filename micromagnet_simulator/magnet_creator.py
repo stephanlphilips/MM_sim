@@ -10,6 +10,7 @@ from micromagnet_simulator.loop_control.data_container import data_container, lo
 from micromagnet_simulator.loop_control.setpoint_mgr import setpoint_mgr
 from micromagnet_simulator.magnet_viewer import qubit_view, plot_view
 
+
 @dataclass
 class mag_sim_data:
 	u_mag_positions= list()
@@ -28,7 +29,12 @@ class mag_sim_data:
 		return m
 
 	def make_collection(self):
-		self.magnet_collection = magnet_collection()
+		if (self.magnet_collection == None):
+			self.magnet_collection = magnet_collection() # Make new collection
+		else:
+			pass #Do nothing and just amend the existing collection
+
+		
 		for magnet in self.u_mag_positions:
 			magnet.set_magnetisation(self.magnetisation)
 			self.magnet_collection += magnet
@@ -88,6 +94,7 @@ class umag_creator():
 		'''
 		self.data = data_container(mag_sim_data())
 		self._setpoints = setpoint_mgr()
+
 	@loop_ctrl
 	def set_magnetisation(self, Mx, My, Mz):
 		'''
@@ -160,6 +167,26 @@ class umag_creator():
 
 		return self.data_tmp
 
+	def clearAll(self): 
+		'''
+		Required for looping through different shapes
+		'''
+
+		self.data[0].dot_positions.clear()
+		self.data[0].u_mag_positions.clear()
+		self.data[0].magnetisation = tuple()
+		self.data[0].ext_field = tuple()
+		self.data[0].magnet_collection.qubit_positions = list()
+		self.data[0].magnet_collection.qubit_positions.clear()
+		self.data[0].magnet_collection.magnets = list()
+		self.data[0].magnet_collection.magnets.clear()
+		self.data[0].magnet_collection.coll = magpy.Collection()
+
+		self.data[0].magnet_collection : any = None
+
+
+		return None
+
 	def generate_view(self, show_geom = False):
 		if self.data.size == 1:
 			m_coll = magnet_collection()
@@ -175,6 +202,14 @@ class umag_creator():
 			return plot_view(m_coll, view=None)
 		else:
 			raise ValueError('no support for multidimensional views.')
+
+	def setCollection(self): 
+		''' 
+		To create different collections with new magnetizaion (and delete old magnets) 
+		'''
+		for data_item in self.data.flatten():
+			data_item.make_collection()
+		self.data[0].u_mag_positions.clear()
 
 	def generate_qubit_prop(self):
 		for data_item in self.data.flatten():
