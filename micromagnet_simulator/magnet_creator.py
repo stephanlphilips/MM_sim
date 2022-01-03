@@ -192,6 +192,7 @@ class umag_creator():
 			m_coll = magnet_collection()
 
 			for m in self.data[0].u_mag_positions:
+				m.set_magnetisation(self.data[0].magnetisation)
 				m_coll += m
 
 			if show_geom == True:
