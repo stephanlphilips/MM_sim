@@ -1,0 +1,13 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: uM Simulator for spin qubits
+message: Please cite this software using these metadata.
+type: software
+authors:
+  - given-names: Stephan
+    email: stephanphilips@me.com
+    affiliation: TUDelft
+    orcid: 'https://orcid.org/0000-0001-5400-7660'
+    family-names: Philips
