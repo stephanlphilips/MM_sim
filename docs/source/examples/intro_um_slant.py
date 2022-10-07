@@ -1,4 +1,7 @@
+from micromagnet_simulator.magnet_creator import umag_creator
+
 umag = umag_creator()
+umag.set_magnetisation(1,0,0)
 
 umag.add_cube(-500, 0, 200, 400,500,200)
 

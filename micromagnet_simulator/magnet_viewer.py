@@ -186,7 +186,7 @@ class plot_view(view):
 		plt.xlim(self.views[idx[0]][0], self.views[idx[0]][1])
 		plt.ylim(self.views[idx[1]][0], self.views[idx[1]][1])
 		
-		self.__add_micromagnet_overlay(ax, idx)
+		
 
 		# im = plt.imshow(raw_data.T[::-1,:], extent=[self.views[idx[0]][0], self.views[idx[0]][1], self.views[idx[1]][0], self.views[idx[1]][1]])
 		# cbar = plt.colorbar(im, ax=ax)
@@ -194,6 +194,9 @@ class plot_view(view):
 		c = ax.pcolor(xyz[idx[0]],xyz[idx[1]],raw_data.T)
 		cbar = fig.colorbar(c, ax=ax)
 		cbar.ax.set_ylabel('{} ({})'.format(y_axis_name, self.field.unit+ append_unit))
+
+		self.__add_micromagnet_overlay(ax, idx)
+		
 
 		return fig
 

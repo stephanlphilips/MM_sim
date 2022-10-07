@@ -2,7 +2,7 @@ from micromagnet_simulator.magnet_creator import umag_creator
 
 def example_MM_design(d_magnet_magnet, h_slant, w_slant, h_2deg=70, h_magnet=200):
 	w_magnet = 5000
-	h_magnet = 2000
+	l_magnet = 2000
 
 
 	umag = umag_creator()
@@ -18,15 +18,15 @@ def example_MM_design(d_magnet_magnet, h_slant, w_slant, h_2deg=70, h_magnet=200
 
 	# the big slabs
 	umag.add_cube(-w_magnet/2-d_magnet_magnet/2-w_slant/2, 0, h_2deg+h_magnet/2,
-		w_magnet,h_magnet,h_magnet)
+		w_magnet,l_magnet,h_magnet)
 	umag.add_cube( w_magnet/2+d_magnet_magnet/2+w_slant/2, 0, h_2deg+h_magnet/2,
-		w_magnet,h_magnet,h_magnet)
+		w_magnet,l_magnet,h_magnet)
 
 	# the small pieces above the rectangle
 	umag.add_cube(-d_magnet_magnet/2, h_magnet/4+h_slant/4, h_2deg+h_magnet/2,
-		w_slant,h_magnet/2-h_slant/2,h_magnet)
+		w_slant,l_magnet/2-h_slant/2,h_magnet)
 	umag.add_cube( d_magnet_magnet/2, h_magnet/4+h_slant/4, h_2deg+h_magnet/2,
-		w_slant,h_magnet/2-h_slant/2,h_magnet)
+		w_slant,l_magnet/2-h_slant/2,h_magnet)
 
 	# the rectangular pieces.
 	p_2 = (-d_magnet_magnet/2-w_slant/2, -h_slant/2, h_2deg+h_magnet/2)
